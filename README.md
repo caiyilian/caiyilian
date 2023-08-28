@@ -2,7 +2,7 @@
 
 <!--
 **caiyilian/caiyilian** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
+![](https://raw.githubusercontent.com/caiyilian/caiyilian/main/assets/github-contribution-grid-snake.svg)
 Here are some ideas to get you started:
 
 - 🔭 I’m currently working on ...
