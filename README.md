@@ -30,6 +30,7 @@ Here are some ideas to get you started:
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-contribution-grid-snake.svg">
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-contribution-grid-snake.svg">
 </picture>
-![image](https://github.com/ZhiliangMa/MPU6500-HMC5983-AK8975-BMP280-MS5611-10DOF-IMU-PCB/blob/main/img/IMU-V5-TOP.jpg)
+<br>
+![image](https://github.com/caiyilian/caiyilian/blob/main/img/img.jpg)
 
 
