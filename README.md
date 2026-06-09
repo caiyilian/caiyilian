@@ -38,5 +38,6 @@
 
 <p align="center">
     <a href="https://github.com/caiyilian"><img src="https://img.shields.io/badge/GitHub-caiyilian-blue?logo=github" /></a>
+    <a href="https://gitee.com/tomoya2002"><img src="https://img.shields.io/badge/Gitee-tomoya2002-blue?logo=gitee" /></a>
     <img src="https://komarev.com/ghpvc/?username=caiyilian" />
 </p>
