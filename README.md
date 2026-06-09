@@ -7,7 +7,7 @@
 
 <!-- 个人网站 / personal site — banner -->
 <p align="center">
-  <a href="http://93.115.101.158:13087/">
+  <a href="https://caiyilian.github.io/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" />
       <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-light.svg" />
@@ -15,7 +15,7 @@
     </picture>
   </a>
   <br/>
-  <a href="http://93.115.101.158:13087/"><img src="https://img.shields.io/badge/个人网站-caiyilian.dev-8fb4ff?style=for-the-badge&logo=cloudflare&logoColor=white" alt="个人网站" /></a>
+  <a href="https://caiyilian.github.io/"><img src="https://img.shields.io/badge/个人网站-caiyilian.github.io-8fb4ff?style=for-the-badge&logo=github&logoColor=white" alt="个人网站" /></a>
 </p>
 
 <p align="center">
