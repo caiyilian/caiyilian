@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="180" viewBox="0 0 820 180">
+  <defs>
+    <linearGradient id="bg-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f6f8fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="180" fill="url(#bg-light)" rx="12" stroke="#d0d7de" stroke-width="1"/>
+  <line x1="30" y1="30" x2="790" y2="30" stroke="rgba(9,105,218,.12)" stroke-width="1"/>
+  <line x1="30" y1="150" x2="790" y2="150" stroke="rgba(9,105,218,.12)" stroke-width="1"/>
+  <circle cx="60" cy="40" r="1.5" fill="#0969da" opacity=".3"/>
+  <circle cx="75" cy="55" r="1" fill="#0969da" opacity=".2"/>
+  <circle cx="760" cy="140" r="1.5" fill="#8250df" opacity=".3"/>
+  <circle cx="745" cy="125" r="1" fill="#8250df" opacity=".2"/>
+  
+  <text x="410" y="76" text-anchor="middle" font-family="serif" font-size="54" font-weight="600" fill="#1f2328">Cai</text>
+  <text x="477" y="76" text-anchor="middle" font-family="serif" font-size="54" font-weight="600" fill="#8250df">yi</text>
+  <text x="528" y="76" text-anchor="middle" font-family="serif" font-size="54" font-weight="600" fill="#1f2328">lian</text>
+  
+  <text x="410" y="112" text-anchor="middle" font-family="sans-serif" font-size="14" letter-spacing="3" fill="#57606a">电子科学与技术 · AI / 医学图像</text>
+  <text x="410" y="136" text-anchor="middle" font-family="sans-serif" font-size="11" letter-spacing="2" fill="#656d76">Electronic Science &amp; Tech · AI / Medical Imaging</text>
+</svg>
