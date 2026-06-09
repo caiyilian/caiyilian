@@ -23,14 +23,17 @@
   </picture>
 </p>
 
-<!-- 个人网站 -->
+<!-- 个人网站 / personal site — banner -->
 <p align="center">
   <a href="http://93.115.101.158:13087/">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/个人网站-caiyilian.dev-8fb4ff?style=for-the-badge&logo=cloudflare&logoColor=white" />
-      <img src="https://img.shields.io/badge/个人网站-caiyilian.dev-0969da?style=for-the-badge&logo=cloudflare&logoColor=white" alt="个人网站" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" />
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-light.svg" />
+      <img width="820" src="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" alt="Caiyilian · 个人网站" />
     </picture>
   </a>
+  <br/>
+  <a href="http://93.115.101.158:13087/"><img src="https://img.shields.io/badge/个人网站-caiyilian.dev-8fb4ff?style=for-the-badge&logo=cloudflare&logoColor=white" alt="个人网站" /></a>
 </p>
 
 <p align="center">
