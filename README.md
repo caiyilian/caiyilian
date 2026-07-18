@@ -14,7 +14,7 @@
     </picture>
   </a>
   <br/>
-  <a href="https://caiyilian.github.io/"><img src="https://img.shields.io/badge/涓汉缃戠珯-caiyilian.github.io-8fb4ff?style=for-the-badge&logo=github&logoColor=white" alt="涓汉缃戠珯" /></a>
+  <a href="https://caiyilian.github.io/"><img src="https://img.shields.io/badge/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-caiyilian.github.io-8fb4ff?style=for-the-badge&logo=github&logoColor=white" alt="涓汉缃戠珯" /></a>
 </p>
 
 <p align="center">
