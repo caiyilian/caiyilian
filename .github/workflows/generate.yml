@@ -23,11 +23,13 @@ jobs:
           outputs: dist/github-snake.svg
 
       - name: Generate stats
+        env:
+          TOKEN: ${{ github.token }}
         run: |
           mkdir -p dist
-          STARS=$(curl -s -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/users/caiyilian/repos?per_page=100" | jq '[.[].stargazers_count] | add // 0')
-          REPOS=$(curl -s -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/users/caiyilian" | jq -r '.public_repos')
-          echo "Stars=$STARS Repos=$REPOS"
+          STARS=$(curl -s -H "Authorization: Bearer $TOKEN" "https://api.github.com/users/caiyilian/repos?per_page=100" | jq '[.[].stargazers_count] | add // 0')
+          REPOS=$(curl -s -H "Authorization: Bearer $TOKEN" "https://api.github.com/users/caiyilian" | jq -r '.public_repos')
+          echo "::notice::Stars=$STARS Repos=$REPOS"
           cat > dist/github-stats-dark.svg << EOF
           <svg width="467" height="195" viewBox="0 0 467 195" xmlns="http://www.w3.org/2000/svg">
             <style>.h{font:600 18px sans-serif;fill:#58a6ff}.s{font:600 14px sans-serif;fill:#c9d1d9}.r{font:800 24px sans-serif;fill:#c9d1d9}.c{stroke:#58a6ff;fill:none;stroke-width:6}</style>
