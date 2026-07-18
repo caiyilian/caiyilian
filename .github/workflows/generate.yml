@@ -23,13 +23,31 @@ jobs:
           outputs: dist/github-snake.svg
 
       - name: Stats
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Testing gh..."
-          gh auth status 2>&1 || true
-          echo "---"
-          gh api /users/caiyilian --jq '.public_repos' 2>&1 || echo "FAIL"
-          echo "---"
-          echo "Done" > dist/test.txt
+          mkdir -p dist
+          STARS=$(gh api /users/caiyilian/repos --jq '[.[].stargazers_count] | add // 0')
+          REPOS=$(gh api /users/caiyilian --jq '.public_repos')
+          echo "Stars=$STARS Repos=$REPOS"
+          cat > dist/github-stats-dark.svg << EOF
+          <svg width="467" height="195" viewBox="0 0 467 195" xmlns="http://www.w3.org/2000/svg">
+            <style>.h{font:600 18px sans-serif;fill:#58a6ff}.s{font:600 14px sans-serif;fill:#c9d1d9}.r{font:800 24px sans-serif;fill:#c9d1d9}.c{stroke:#58a6ff;fill:none;stroke-width:6}</style>
+            <rect x="0.5" y="0.5" width="466" height="194" rx="4.5" fill="#00000000"/>
+            <g transform="translate(25,35)"><text class="h">GitHub Overview</text></g>
+            <g transform="translate(0,55)">
+              <g transform="translate(390.5,47.5)">
+                <circle class="c" opacity="0.2" cx="-10" cy="8" r="40"/>
+                <circle class="c" opacity="0.8" cx="-10" cy="8" r="40" stroke-dasharray="250" transform="rotate(-90,-10,8)"/>
+                <text x="-5" y="3" class="r" text-anchor="middle" dominant-baseline="central">B</text>
+              </g>
+              <g transform="translate(25,0)"><text x="0" y="12.5" class="s">Total Stars: $STARS</text></g>
+              <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Repositories: $REPOS</text></g>
+            </g>
+          </svg>
+EOF
+          cp dist/github-stats-dark.svg dist/github-stats-light.svg
+          sed -i 's/#58a6ff/#0969da/g; s/#c9d1d9/#1f2328/g' dist/github-stats-light.svg
           ls -la dist/
 
       - name: Deploy
