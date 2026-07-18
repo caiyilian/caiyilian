@@ -1,0 +1,104 @@
+name: Generate Stats Card
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats SVG
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # 鈹€鈹€ 1. Fetch user data from REST API 鈹€鈹€
+          USER=$(gh api users/caiyilian --jq '{login, name, public_repos, followers, following, created_at}')
+          REPOS=$(gh api users/caiyilian/repos?per_page=100 --jq '[.[].stargazers_count] | add // 0')
+
+          LOGIN=$(echo "$USER" | jq -r '.login')
+          NAME=$(echo "$USER" | jq -r '.name // .login')
+          REPOS_COUNT=$(echo "$USER" | jq -r '.public_repos')
+          FOLLOWERS=$(echo "$USER" | jq -r '.followers')
+          FOLLOWING=$(echo "$USER" | jq -r '.following')
+          JOINED=$(echo "$USER" | jq -r '.created_at | .[0:10]')
+          STARS=$REPOS
+          DATE=$(date -u '+%B %d, %Y')
+
+          # 鈹€鈹€ 2. Generate SVG card 鈹€鈹€
+          mkdir -p dist
+          cat > dist/stats-card.svg << SVGFILE
+          <svg width="400" height="195" viewBox="0 0 400 195" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+            <style>
+              .title { font: 600 16px 'Segoe UI', Ubuntu, sans-serif; fill: #58a6ff; }
+              .stat-label { font: 400 13px 'Segoe UI', Ubuntu, sans-serif; fill: #c9d1d9; }
+              .stat-value { font: 600 15px 'Segoe UI', Ubuntu, sans-serif; fill: #f0f6fc; }
+              .dim { fill: #8b949e; }
+              .footer { font: 400 10px 'Segoe UI', Ubuntu, sans-serif; fill: #8b949e; }
+            </style>
+
+            <rect x="0.5" y="0.5" width="399" height="194" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+            <!-- Title -->
+            <text x="20" y="30" class="title">$LOGIN's GitHub Stats</text>
+            <line x1="20" y1="38" x2="380" y2="38" stroke="#21262d" stroke-width="1"/>
+
+            <!-- Stars -->
+            <g transform="translate(20, 58)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="#e3b341">
+                <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/>
+              </svg>
+              <text x="22" y="13" class="stat-label">Total Stars</text>
+              <text x="360" y="13" text-anchor="end" class="stat-value">$STARS</text>
+            </g>
+
+            <!-- Repos -->
+            <g transform="translate(20, 88)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="#8b949e">
+                <path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
+              </svg>
+              <text x="22" y="13" class="stat-label">Repositories</text>
+              <text x="360" y="13" text-anchor="end" class="stat-value">$REPOS_COUNT</text>
+            </g>
+
+            <!-- Followers -->
+            <g transform="translate(20, 118)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="#8b949e">
+                <path d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"/>
+              </svg>
+              <text x="22" y="13" class="stat-label">Followers</text>
+              <text x="360" y="13" text-anchor="end" class="stat-value">$FOLLOWERS</text>
+            </g>
+
+            <!-- Following -->
+            <g transform="translate(20, 148)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="#8b949e">
+                <path d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"/>
+              </svg>
+              <text x="22" y="13" class="stat-label">Following</text>
+              <text x="360" y="13" text-anchor="end" class="stat-value">$FOLLOWING</text>
+            </g>
+
+            <!-- Footer -->
+            <text x="20" y="180" class="footer">Updated $DATE</text>
+            <text x="380" y="180" text-anchor="end" class="footer">Joined $JOINED</text>
+          </svg>
+          SVGFILE
+
+          echo "鉁?SVG generated"
+          ls -la dist/
+
+      - name: Deploy to output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+          keep_history: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
