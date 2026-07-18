@@ -18,7 +18,10 @@
 </p>
 
 <p align="center">
-  <img width="400" src="https://github-flex.vercel.app/api/stats?username=caiyilian&theme=dark&hide_border=true" alt="GitHub Stats" />
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card.svg" />
+    <img width="400" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card.svg" alt="GitHub Stats" />
+  </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=caiyilian&hide_border=true&background=00000000&ring=58A6FF&fire=58A6FF&currStreakNum=C9D1D9&sideNums=C9D1D9&currStreakLabel=58A6FF&sideLabels=8B949E&dates=8B949E&stroke=58A6FF" />
     <img width="400" src="https://streak-stats.demolab.com?user=caiyilian&hide_border=true&background=00000000&ring=0969DA&fire=0969DA&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=0969DA&sideLabels=57606A&dates=57606A&stroke=0969DA" alt="GitHub Streak" />
