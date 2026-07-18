@@ -47,7 +47,10 @@ jobs:
               <text x="0" y="0" class="r" text-anchor="middle" dominant-baseline="central">B+</text>
             </g>
             <g transform="translate(25,0)"><text x="0" y="12.5" class="s">Total Stars Earned:</text><text x="219" y="12.5" class="s">'$S'</text></g>
-            <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Repositories:</text><text x="219" y="12.5" class="s">'$R'</text></g>
+            <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Total Commits:</text><text x="219" y="12.5" class="s">1,541</text></g>
+            <g transform="translate(25,50)"><text x="0" y="12.5" class="s">Total PRs:</text><text x="219" y="12.5" class="s">594</text></g>
+            <g transform="translate(25,75)"><text x="0" y="12.5" class="s">Total Issues:</text><text x="219" y="12.5" class="s">637</text></g>
+            <g transform="translate(25,100)"><text x="0" y="12.5" class="s">Repositories:</text><text x="219" y="12.5" class="s">'$R'</text></g>
           </g></svg>' > dist/github-stats-dark.svg
           cp dist/github-stats-dark.svg dist/github-stats-light.svg
           sed -i 's/#58a6ff/#0969da/g; s/#c9d1d9/#1f2328/g' dist/github-stats-light.svg
