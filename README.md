@@ -1,28 +1,24 @@
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-snake.svg" />
   <img alt="github-snake" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-snake.svg" />
 </picture>
 
-<!-- 个人网站 / personal site — banner -->
+<!-- 涓汉缃戠珯 / personal site 鈥?banner -->
 <p align="center">
   <a href="https://caiyilian.github.io/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" />
       <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-light.svg" />
-      <img width="820" src="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" alt="Caiyilian · 个人网站" />
+      <img width="820" src="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" alt="Caiyilian 路 涓汉缃戠珯" />
     </picture>
   </a>
   <br/>
-  <a href="https://caiyilian.github.io/"><img src="https://img.shields.io/badge/个人网站-caiyilian.github.io-8fb4ff?style=for-the-badge&logo=github&logoColor=white" alt="个人网站" /></a>
+  <a href="https://caiyilian.github.io/"><img src="https://img.shields.io/badge/涓汉缃戠珯-caiyilian.github.io-8fb4ff?style=for-the-badge&logo=github&logoColor=white" alt="涓汉缃戠珯" /></a>
 </p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-lake-86.vercel.app/api?username=caiyilian&bg_color=00000000&show_icons=true&hide_border=true&number_format=long&count_private=true&include_all_commits=true&custom_title=GitHub%20Overview&title_color=58a6ff&text_color=c9d1d9&icon_color=58a6ff&ring_color=58a6ff" />
-    <img width="400" src="https://github-readme-stats-sigma-lake-86.vercel.app/api?username=caiyilian&bg_color=00000000&show_icons=true&hide_border=true&number_format=long&count_private=true&include_all_commits=true&custom_title=GitHub%20Overview&title_color=0969da&text_color=1f2328&icon_color=0969da&ring_color=0969da" alt="GitHub Overview" />
-  </picture>
+  <img width="400" src="https://github-flex.vercel.app/api/stats?username=caiyilian&theme=dark&hide_border=true" alt="GitHub Stats" />
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=caiyilian&hide_border=true&background=00000000&ring=58A6FF&fire=58A6FF&currStreakNum=C9D1D9&sideNums=C9D1D9&currStreakLabel=58A6FF&sideLabels=8B949E&dates=8B949E&stroke=58A6FF" />
     <img width="400" src="https://streak-stats.demolab.com?user=caiyilian&hide_border=true&background=00000000&ring=0969DA&fire=0969DA&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=0969DA&sideLabels=57606A&dates=57606A&stroke=0969DA" alt="GitHub Streak" />
