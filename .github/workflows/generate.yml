@@ -20,6 +20,13 @@ jobs:
       - uses: miccy/snake-evolution@v1
         with:
           github_user_name: ${{ github.repository_owner }}
+          theme: github-dark
+          outputs: dist/github-snake-dark.svg
+
+      - uses: miccy/snake-evolution@v1
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          theme: github-light
           outputs: dist/github-snake.svg
 
       - name: Stats
@@ -35,9 +42,11 @@ jobs:
               <circle class="c" opacity="0.8" cx="-10" cy="8" r="40" stroke-dasharray="250" transform="rotate(-90,-10,8)"/>
               <text x="-5" y="3" class="r" text-anchor="middle" dominant-baseline="central">B</text>
             </g>
-            <g transform="translate(25,0)"><text x="0" y="12.5" class="s">Total Stars: 46</text></g>
-            <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Repositories: 51</text></g>
-            <g transform="translate(25,50)"><text x="0" y="12.5" class="s">Followers: 12</text></g>
+            <g transform="translate(25,0)"><text x="0" y="12.5" class="s">Total Stars Earned:</text><text x="219" y="12.5" class="s">46</text></g>
+            <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Total Commits:</text><text x="219" y="12.5" class="s">1,541</text></g>
+            <g transform="translate(25,50)"><text x="0" y="12.5" class="s">Total PRs:</text><text x="219" y="12.5" class="s">594</text></g>
+            <g transform="translate(25,75)"><text x="0" y="12.5" class="s">Total Issues:</text><text x="219" y="12.5" class="s">637</text></g>
+            <g transform="translate(25,100)"><text x="0" y="12.5" class="s">Contributed to (last year):</text><text x="219" y="12.5" class="s">44</text></g>
           </g></svg>' > dist/github-stats-dark.svg
           sed s/#58a6ff/#0969da/g dist/github-stats-dark.svg | sed s/#c9d1d9/#1f2328/g > dist/github-stats-light.svg
           ls -la dist/
