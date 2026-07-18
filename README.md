@@ -19,8 +19,9 @@
 
 <p align="center">
     <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card.svg" />
-    <img width="400" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card.svg" alt="GitHub Stats" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card-light.svg" />
+    <img width="400" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/stats-card-dark.svg" alt="GitHub Stats" />
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=caiyilian&hide_border=true&background=00000000&ring=58A6FF&fire=58A6FF&currStreakNum=C9D1D9&sideNums=C9D1D9&currStreakLabel=58A6FF&sideLabels=8B949E&dates=8B949E&stroke=58A6FF" />
