@@ -38,9 +38,9 @@ jobs:
           <g transform="translate(25,35)"><text class="h">GitHub Overview</text></g>
           <g transform="translate(0,55)">
             <g transform="translate(390.5,47.5)">
-              <circle class="c" opacity="0.2" cx="-10" cy="8" r="40"/>
-              <circle class="c" opacity="0.8" cx="-10" cy="8" r="40" stroke-dasharray="250" transform="rotate(-90,-10,8)"/>
-              <text x="-5" y="3" class="r" text-anchor="middle" dominant-baseline="central">B</text>
+              <circle class="c" opacity="0.2" cx="0" cy="0" r="40"/>
+              <circle class="c" opacity="0.8" cx="0" cy="0" r="40" stroke-dasharray="250" transform="rotate(-90)"/>
+              <text x="0" y="0" class="r" text-anchor="middle" dominant-baseline="central">B+</text>
             </g>
             <g transform="translate(25,0)"><text x="0" y="12.5" class="s">Total Stars Earned:</text><text x="219" y="12.5" class="s">46</text></g>
             <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Total Commits:</text><text x="219" y="12.5" class="s">1,541</text></g>
