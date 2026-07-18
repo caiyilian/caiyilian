@@ -22,45 +22,29 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake.svg
 
-      - name: Generate stats
+      - name: Generate stats SVG
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set -e
-          STARS=$(gh api users/caiyilian/repos?per_page=100 --jq '[.[].stargazers_count] | add // 0')
-          COMMITS=$(gh api "search/commits?q=author:caiyilian&per_page=1" --jq '.total_count // 0' 2>/dev/null || echo "0")
-          PRS=$(gh api "search/issues?q=author:caiyilian+type:pr&per_page=1" --jq '.total_count // 0' 2>/dev/null || echo "0")
-          ISSUES=$(gh api "search/issues?q=author:caiyilian+type:issue&per_page=1" --jq '.total_count // 0' 2>/dev/null || echo "0")
           mkdir -p dist
-          RANK="B"
-          if [ "$STARS" -gt 1000 ] || [ "$COMMITS" -gt 5000 ]; then RANK="A"; fi
-          cat > dist/github-stats-dark.svg << 'SVGEOF'
+          STARS=$(gh api repos/caiyilian/caiyilian --jq '.stargazers_count' 2>/dev/null || echo "0")
+          USER=$(gh api users/caiyilian --jq '{public_repos}')
+          REPOS=$(echo "$USER" | jq -r '.public_repos')
+          cat > dist/github-stats-dark.svg << 'EOF'
           <svg width="467" height="195" viewBox="0 0 467 195" role="img">
-            <title>GitHub Overview, Rank: R</title>
-            <style>.h{font:600 18px sans-serif;fill:#58a6ff}.s{font:600 14px sans-serif;fill:#c9d1d9}.r{font:800 24px sans-serif;fill:#c9d1d9}.c{stroke:#58a6ff;fill:none;stroke-width:6}</style>
+            <title>GitHub Stats</title>
             <rect x="0.5" y="0.5" width="466" height="194" rx="4.5" fill="#00000000"/>
-            <g transform="translate(25,35)"><text class="h">GitHub Overview</text></g>
-            <g transform="translate(0,55)">
-              <g transform="translate(390.5,47.5)">
-                <circle class="c" opacity="0.2" cx="-10" cy="8" r="40"/>
-                <circle class="c" opacity="0.8" cx="-10" cy="8" r="40" stroke-dasharray="250" transform="rotate(-90,-10,8)"/>
-                <text x="-5" y="3" class="r" text-anchor="middle" dominant-baseline="central">R</text>
-              </g>
-              <svg x="0" y="0">
-                <g transform="translate(25,0)"><text x="0" y="12.5" class="s">Stars:</text><text x="219" y="12.5" class="s">ST</text></g>
-                <g transform="translate(25,25)"><text x="0" y="12.5" class="s">Commits:</text><text x="219" y="12.5" class="s">CO</text></g>
-                <g transform="translate(25,50)"><text x="0" y="12.5" class="s">PRs:</text><text x="219" y="12.5" class="s">PR</text></g>
-                <g transform="translate(25,75)"><text x="0" y="12.5" class="s">Issues:</text><text x="219" y="12.5" class="s">IS</text></g>
-              </svg>
-            </g>
+            <text x="25" y="35" font-family="sans-serif" font-size="18" font-weight="600" fill="#58a6ff">GitHub Overview</text>
+            <text x="25" y="75" font-family="sans-serif" font-size="14" fill="#c9d1d9">Stars: S</text>
+            <text x="25" y="100" font-family="sans-serif" font-size="14" fill="#c9d1d9">Repos: R</text>
           </svg>
-SVGEOF
-          sed -i "s/R/$RANK/g; s/ST/$STARS/g; s/CO/$COMMITS/g; s/PR/$PRS/g; s/IS/$ISSUES/g" dist/github-stats-dark.svg
+EOF
+          sed -i "s/S/$STARS/g; s/R/$REPOS/g" dist/github-stats-dark.svg
           cp dist/github-stats-dark.svg dist/github-stats-light.svg
           sed -i 's/#58a6ff/#0969da/g; s/#c9d1d9/#1f2328/g' dist/github-stats-light.svg
-          ls -la dist/
+          echo "Done"; ls -la dist/
 
-      - name: Deploy to output branch
+      - name: Deploy
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
