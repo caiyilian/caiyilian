@@ -22,13 +22,12 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake.svg
 
-      - name: Stats
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Generate stats SVG
         run: |
           mkdir -p dist
-          STARS=$(gh api /users/caiyilian/repos --jq '[.[].stargazers_count] | add // 0')
-          REPOS=$(gh api /users/caiyilian --jq '.public_repos')
+          echo "Testing curl..."
+          REPOS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/caiyilian" | jq -r '.public_repos')
+          STARS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/caiyilian/repos?per_page=100" | jq '[.[].stargazers_count] | add // 0')
           echo "Stars=$STARS Repos=$REPOS"
           cat > dist/github-stats-dark.svg << EOF
           <svg width="467" height="195" viewBox="0 0 467 195" xmlns="http://www.w3.org/2000/svg">
