@@ -27,8 +27,10 @@ jobs:
       - uses: miccy/snake-evolution@v1
         with:
           github_user_name: ${{ github.repository_owner }}
-          theme: github-dark
-          outputs: dist/github-snake-dark.svg
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
       # 鈹€鈹€鈹€ Step 3: Generate stats cards matching github-readme-stats style 鈹€鈹€鈹€
       - name: Generate stats SVGs
