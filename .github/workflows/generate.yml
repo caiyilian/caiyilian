@@ -22,14 +22,12 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake.svg
 
-      - name: Generate stats SVG
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Generate stats
         run: |
-          echo "Fetching data..."
-          STARS=$(gh api users/caiyilian/repos --paginate --jq '[.[].stargazers_count] | add // 0' 2>/dev/null || echo "0")
-          REPOS=$(gh api users/caiyilian --jq '.public_repos' 2>/dev/null || echo "0")
           mkdir -p dist
+          STARS=$(curl -s -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/users/caiyilian/repos?per_page=100" | jq '[.[].stargazers_count] | add // 0')
+          REPOS=$(curl -s -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/users/caiyilian" | jq -r '.public_repos')
+          echo "Stars=$STARS Repos=$REPOS"
           cat > dist/github-stats-dark.svg << EOF
           <svg width="467" height="195" viewBox="0 0 467 195" xmlns="http://www.w3.org/2000/svg">
             <style>.h{font:600 18px sans-serif;fill:#58a6ff}.s{font:600 14px sans-serif;fill:#c9d1d9}.r{font:800 24px sans-serif;fill:#c9d1d9}.c{stroke:#58a6ff;fill:none;stroke-width:6}</style>
@@ -48,7 +46,7 @@ jobs:
 EOF
           cp dist/github-stats-dark.svg dist/github-stats-light.svg
           sed -i 's/#58a6ff/#0969da/g; s/#c9d1d9/#1f2328/g' dist/github-stats-light.svg
-          echo "Done. Files:"; ls -la dist/
+          ls -la dist/
 
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v4
