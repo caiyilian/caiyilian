@@ -20,9 +20,7 @@ jobs:
       - uses: miccy/snake-evolution@v1
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+          outputs: dist/github-snake.svg
 
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v4
