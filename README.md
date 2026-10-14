@@ -6,20 +6,6 @@
 </picture>
 </p>
 
-<!-- 涓汉缃戠珯 / personal site 鈥?banner -->
-<p align="center">
-  <a href="https://caiyilian.github.io/">
-    <p align="center">
-  <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-light.svg" />
-      <img width="820" src="https://raw.githubusercontent.com/caiyilian/caiyilian/main/site-banner-dark.svg" alt="Caiyilian 路 涓汉缃戠珯" />
-    </picture>
-  </a>
-  <br/>
-  <a href="https://caiyilian.github.io/"><img src="https://img.shields.io/badge/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99-caiyilian.github.io-8fb4ff?style=for-the-badge&logo=github&logoColor=white" alt="涓汉缃戠珯" /></a>
-</p>
-
 <p align="center">
     <p align="center">
   <picture>
