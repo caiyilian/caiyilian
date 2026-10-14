@@ -53,6 +53,11 @@ jobs:
           sed -i 's/#58a6ff/#0969da/g; s/#c9d1d9/#1f2328/g' dist/github-stats-light.svg
           ls -la dist/
 
+      - name: Generate activity graph
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/activity_graph.py
+
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v4
         with:
