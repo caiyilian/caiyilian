@@ -21,8 +21,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=caiyilian&hide_border=true&area=true&custom_title=Contribution%20Graph&bg_color=00000000&color=c9d1d9&title_color=58a6ff&line=58a6ff&point=58a6ff&area_color=58a6ff" />
-    <img width="800" src="https://github-readme-activity-graph.vercel.app/graph?username=caiyilian&hide_border=true&area=true&custom_title=Contribution%20Graph&bg_color=00000000&color=1f2328&title_color=0969da&line=0969da&point=0969da&area_color=0969da" alt="Contribution Graph" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/activity-graph-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/activity-graph-light.svg" />
+    <img width="800" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/activity-graph-light.svg" alt="Contribution Graph" />
   </picture>
 </p>
 
