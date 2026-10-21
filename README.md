@@ -9,9 +9,8 @@
 <p align="center">
     <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-stats-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-stats-light.svg" />
-    <img width="400" src="https://raw.githubusercontent.com/caiyilian/caiyilian/output/github-stats-dark.svg" alt="GitHub Stats" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=caiyilian&show_icons=true&hide_border=true&bg_color=00000000&title_color=58A6FF&text_color=C9D1D9&icon_color=58A6FF" />
+    <img width="400" src="https://github-readme-stats.vercel.app/api?username=caiyilian&show_icons=true&hide_border=true&bg_color=00000000" alt="GitHub Stats" />
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=caiyilian&hide_border=true&background=00000000&ring=58A6FF&fire=58A6FF&currStreakNum=C9D1D9&sideNums=C9D1D9&currStreakLabel=58A6FF&sideLabels=8B949E&dates=8B949E&stroke=58A6FF" />
